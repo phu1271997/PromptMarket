@@ -282,7 +282,8 @@ export const useAppStore = create<AppState>((set, get) => ({
             promptTemplate,
             preview,
             testCases
-          ]
+          ],
+          value: BigInt(0)
         });
 
         // Wait for consensus finalization (AI reviewing takes 30-60s)
@@ -408,7 +409,8 @@ export const useAppStore = create<AppState>((set, get) => ({
         const txHash = await mmClient.writeContract({
           address: CONTRACT_ADDRESS,
           functionName: "re_evaluate",
-          args: [promptId, newTemplate, newPreview]
+          args: [promptId, newTemplate, newPreview],
+          value: BigInt(0)
         });
 
         await mmClient.waitForTransactionReceipt({
@@ -462,7 +464,8 @@ export const useAppStore = create<AppState>((set, get) => ({
         const txHash = await mmClient.writeContract({
           address: CONTRACT_ADDRESS,
           functionName: "report_prompt",
-          args: [promptId, reason]
+          args: [promptId, reason],
+          value: BigInt(0)
         });
 
         await mmClient.waitForTransactionReceipt({
@@ -507,7 +510,8 @@ export const useAppStore = create<AppState>((set, get) => ({
         const txHash = await mmClient.writeContract({
           address: CONTRACT_ADDRESS,
           functionName: "withdraw",
-          args: []
+          args: [],
+          value: BigInt(0)
         });
 
         await mmClient.waitForTransactionReceipt({
