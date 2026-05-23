@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #0b0813;
+    color: #f3f1f8;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* Glassmorphism custom classes */
+.glass-panel {
+  background: rgba(20, 16, 32, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+}
+
+.glass-panel-glow {
+  background: rgba(20, 16, 32, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.15);
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0813;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.3);
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.5);
+}
+
+/* Pulse animation for review pipeline step progress */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.3;
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
+  }
+  50% {
+    opacity: 0.9;
+    box-shadow: 0 0 25px rgba(139, 92, 246, 0.6);
+  }
+}
+
+.review-glow {
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+/* Spinner */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin 8s linear infinite;
+}
